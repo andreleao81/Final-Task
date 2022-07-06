@@ -13,6 +13,15 @@ class FuncionarioCreate(MethodView):
         senha = body.get("senha")
         turno = body.get("turno")
 
+        if isinstance(nome, str) and\
+            isinstance(cpf, str) and\
+                isinstance(senha, str) and\
+                    isinstance(turno, str):
+
+            funcionario = Funcionario.query.filter_by(cpf=cpf).first()
+                                
+
+
         return None
 
 

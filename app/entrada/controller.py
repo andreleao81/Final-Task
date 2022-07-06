@@ -17,7 +17,7 @@ class EntradaCreate(MethodView):
             isinstance(codigo, str) and\
                 isinstance(responsavel, int):
 
-            entrada = Entrada.query.filter(codigo=codigo).first()
+            entrada = Entrada.query.filter_by(codigo=codigo).first()
                                 
 
 

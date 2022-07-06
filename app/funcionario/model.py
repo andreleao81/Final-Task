@@ -5,7 +5,7 @@ from flask import Blueprint
 funcionario_api = Blueprint("funcionario_api", __name__)
 
 class Funcionario(BaseModel):
-    __tablename__ = 'funcionarios'
+    __tablename__ = 'funcionario'
 
     nome = db.Column(db.String()) 
     cpf = db.Column(db.String(11), unique = True) 
