@@ -29,9 +29,8 @@ class SaidaCreate(MethodView):
 
             saida.save()
 
-
-
         return saida.json(), 200
+
 
     def get(self):
 
