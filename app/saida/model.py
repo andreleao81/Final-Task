@@ -15,7 +15,6 @@ class Saida(BaseModel):
     codigo = db.Column(db.String(11)) 
     validade = db.Column(db.String(50))
     responsavel = db.Column(db.Integer, db.ForeignKey("funcionario.id"))
-    cliente = db.Column(db.Integer, db.ForeignKey("cliente.id"))
 
 
 def json(self):
@@ -25,5 +24,4 @@ def json(self):
             "produto": self.produto,
             "codigo": self.validade,
             "responsavel": self.responsavel,
-            "cliente": self.cliente,
         }

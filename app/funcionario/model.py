@@ -9,7 +9,8 @@ class Funcionario(BaseModel):
 
     nome = db.Column(db.String()) 
     cpf = db.Column(db.String(11), unique = True) 
-    senha = db.Column(db.String(50))
+    senha = db.Column(db.String(), unique = True, nullable = False)
+    email = db.Column(db.String(100), unique = True, nullable = False)
     turno = db.Column(db.Integer())
 
     entradas = db.relationship("entrada", backref = "funcionario")
@@ -21,6 +22,6 @@ class Funcionario(BaseModel):
             "id": self.id,
             "nome": self.nome,
             "cpf": self.cpf,
-            "senha": self.senha,
+            "email": self.email,
             "turno": self.turno
         }
