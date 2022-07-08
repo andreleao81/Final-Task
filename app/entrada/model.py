@@ -12,7 +12,7 @@ class Entrada(BaseModel):
     __tablename__ = 'entrada'
 
 
-    produto = db.Column(db.String()) # string limitada
+    produto = db.Column(db.String()) 
     codigo = db.Column(db.String(11), unique = True) 
     validade = db.Column(db.String())
     responsavel = db.Column(db.Integer, db.ForeignKey("funcionario.id"))

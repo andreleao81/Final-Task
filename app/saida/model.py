@@ -15,5 +15,6 @@ class Saida(BaseModel):
     codigo = db.Column(db.String(11)) 
     validade = db.Column(db.String(50))
     responsavel = db.Column(db.Integer, db.ForeignKey("funcionario.id"))
+    cliente = db.Column(db.Integer, db.ForeignKey("cliente.id"))
 
     

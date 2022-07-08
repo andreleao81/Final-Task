@@ -6,6 +6,7 @@ from .extensions import db, migrate
 from app.funcionario.model import funcionario_api
 from app.entrada.model import entrada_api
 from app.saida.model import saida_api
+from app.cliente.model import cliente_api
 
 
 def create_app():
@@ -19,6 +20,7 @@ def create_app():
     app.register_blueprint(funcionario_api)
     app.register_blueprint(entrada_api)
     app.register_blueprint(saida_api)
+    app.register_blueprint(cliente_api)
 
     return app
 

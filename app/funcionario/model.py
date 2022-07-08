@@ -12,8 +12,8 @@ class Funcionario(BaseModel):
     senha = db.Column(db.String(50))
     turno = db.Column(db.Integer())
 
-    entradas = db.relationship("Entrada", backref = "funcionario")
-    saidas = db.relationship("Saida", backref = "funcionario")
+    entradas = db.relationship("entrada", backref = "funcionario")
+    saidas = db.relationship("saída", backref = "funcionario")
     
     def json(self):
         
