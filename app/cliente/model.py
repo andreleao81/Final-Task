@@ -26,5 +26,5 @@ def json(self):
             "nome": self.nome,
             "cnpj": self.cnpj,
             "email": self.email,
-            "endereco": self.endereco,
+            "endereco": self.endereco
         }
