@@ -18,4 +18,12 @@ class Entrada(BaseModel):
     responsavel = db.Column(db.Integer, db.ForeignKey("funcionario.id"))
 
 
-    
+def json(self):
+        
+        return {
+            "id": self.id,
+            "produto": self.produto,
+            "codigo": self.codigo,
+            "validade": self.validade,
+            "responsavel": self.responsavel
+        }

@@ -1,4 +1,11 @@
+from app.sensive import sen
+
 class Config:
-        SQLALCHEMY_DATABASE_URI = "sqlite:///data.sqlite"
-        SQLALCHEMY_TRACK_MODIFICATIONS = False
-        DEBUG = True
+        SQLALCHEMY_DATABASE_URI = sen.SQLALCHEMY_DATABASE_URI
+        SQLALCHEMY_TRACK_MODIFICATIONS = sen.SQLALCHEMY_TRACK_MODIFICATIONS
+        DEBUG = sen.DEBUG
+
+        JSON_SORT_KEYS = sen.JSON_SORT_KEYS
+        JWT_SECRET_KEY = sen.JWT_SECRET_KEY
+        
+

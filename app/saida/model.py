@@ -17,4 +17,13 @@ class Saida(BaseModel):
     responsavel = db.Column(db.Integer, db.ForeignKey("funcionario.id"))
     cliente = db.Column(db.Integer, db.ForeignKey("cliente.id"))
 
-    
+
+def json(self):
+        
+        return {
+            "id": self.id,
+            "produto": self.produto,
+            "codigo": self.validade,
+            "responsavel": self.responsavel,
+            "cliente": self.cliente,
+        }

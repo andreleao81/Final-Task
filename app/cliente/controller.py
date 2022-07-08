@@ -1,17 +1,22 @@
 from app.cliente.model import Cliente
 from flask import request, jsonify
 from flask.views import MethodView
+import bcrypt
+from flask_jwt_extended import create_access_token
+from app.extensions import db, mail
 
 class ClienteCreate(MethodView):
     
     def post(self):
 
         body = request.json
+        a = db.Query
 
         nome = body.get("nome")
         cnpj = body.get("cnpj")
         endereco = body.get("endereco")
         senha = body.get("senha")
+        senha = bcrypt.hashpw(senha.encode(), bcrypt.gensalt().decode())
 
         if isinstance(nome, str) and\
             isinstance(cnpj, str) and\
@@ -120,4 +125,21 @@ class ClienteDetails(MethodView):
 
         return cliente.json()
         
+
+class Login(MethodView):
+    
+    def post(self):
+
+        dados = request.json()
+
+        email = dados.get("email")
+        senha = dados.get("senha")
+
+        cliente = Cliente.query.filter_by(email = email, senha = senha)
+        
+        if cliente and bcrypt.checkpw(senha.encode(), cliente.senha.encode()):
+            return 200, {"token": create_access_token(cliente.id, additional_claims={"cliente":"logado"})}
+        return {"msg":"usuario ou email invalidos"}, 400
+        
+
 
